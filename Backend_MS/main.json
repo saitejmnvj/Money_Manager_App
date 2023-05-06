@@ -1,0 +1,19 @@
+{
+   "Accounts": [
+
+   ], 
+   "Transactions": [
+    
+   ],
+   "Categories": [
+        "House Rent",
+        "Tax"
+   ] 
+}
+
+// "hello": {
+      //"Name": "SriRama",
+      //"Sex": "Male"
+//}
+//THe above is an object
+//Array is a collection can just

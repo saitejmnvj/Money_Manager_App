@@ -1,0 +1,12 @@
+{
+    "Balance": 40000,
+    "Debit": 
+    [
+        {
+            "Body Shop": 300,
+            "Rent": 796,
+            "Travel": 100.6
+        }
+          
+    ]
+}
