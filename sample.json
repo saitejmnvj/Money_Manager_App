@@ -4,8 +4,12 @@
     [
         {
             "Body Shop": 300,
-            "Rent": 796,
+            "Rent": 700,
             "Travel": 100.6
+        },
+        {
+            "Food": 500,
+            "Groceries": 538.7
         }
           
     ]

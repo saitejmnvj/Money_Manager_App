@@ -42,8 +42,10 @@ import (
 	json objects into Go Maps -> { "1": "Hello", "2": false}
 */
 /*
+############################################################################
 	Slices are most commonly used inplace of arrays, as Slices are dynamic
 	whereas arrays have fixed length
+############################################################################
 */
 
 //fmt.Printf("%T", json_data)
@@ -58,7 +60,7 @@ func Parsejson(file_path string) map[string]interface{} {
 	file_data, e := os.Open(file_path)
 	read_file_err(e)
 	byteValue, _ := ioutil.ReadAll(file_data)
-	//defer file_data.Close()
+	defer file_data.Close()
 	var json_data map[string]interface{}
 	json.Unmarshal([]byte(byteValue), &json_data)
 
@@ -70,3 +72,27 @@ func Parsejson(file_path string) map[string]interface{} {
 //What is interface?
 
 // There might be a need to separate read file and parse json as two functions in the future
+
+/*
+IMPORTANT IMPORTANT
+############################################################
+The defaults that the json package will decode into when the type isn't declared are:
+
+bool, for JSON booleans
+float64, for JSON numbers
+string, for JSON strings
+[]interface{}, for JSON arrays
+map[string]interface{}, for JSON objects
+nil for JSON null
+############################################################
+*******
+This will come very handy when working with different types of json files.
+You can use "switch case" to extract different kinds of json data
+switch c := v.type() {
+	case string:
+		do something
+	case float64
+		do something else
+}
+*******
+*/
