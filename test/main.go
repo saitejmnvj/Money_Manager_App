@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"test/files"
 )
 
@@ -10,6 +11,16 @@ var (
 	spending  float64
 	balance   float64
 )
+
+/*
+######################################
+If there's variable is an interface,
+To use it in some operation always assert that variable,
+Can't even iterate interface unless you the variable is asserted into
+iteratable type
+######################################
+
+*/
 
 // func read_file_err(e error) {
 // 	if e != nil {
@@ -20,6 +31,7 @@ func main() {
 	json_map := files.Parsejson(file_path)
 	//fmt.Println("This is json Map", files.Parsejson(file_path))
 	//fmt.Println("This is type of file", reflect.TypeOf(file_path))
+	fmt.Println("Type of JSON_MAP", reflect.TypeOf(json_map))
 	fmt.Println("This is json parsed data:", json_map)
 
 	for k, v := range json_map {
@@ -48,6 +60,17 @@ func main() {
 		}
 
 	}
+
+	// for k, v := range json_map {
+	// 	switch i := v.(type) {
+	// 	case map[string]interface{}:
+	// 		fmt.Println("Hello")
+	// 	case []interface{}:
+	// 		fmt.Println("Hello[]interface{}")
+
+	// 	}
+
+	// }
 
 	fmt.Println("This is the total spending for the month x : ", spending)
 	fmt.Println("This is the current Balance: ", balance-spending)
@@ -97,3 +120,12 @@ func main() {
 		$#$##############################$$$$$$$$$$$$$$$$$$$$$$$$$
 	*/
 }
+
+/*
+I need to write a switch case to handle different kind of json datas that come, I have written for
+[]interface{}, for JSON arrays
+map[string]interface{}, for JSON objects
+
+json_map is map[string]interface{}
+v in Line 47 is []interface{}
+*/
